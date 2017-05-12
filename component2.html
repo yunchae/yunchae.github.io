@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+  <div id="example">
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+</div>
+</body>
+<script>
+Vue.component('simple-counter', {
+    template: '<button v-on:click="increase">{{ counter }}</button>',
+    data: function() {
+        return {
+            counter: 0
+        };
+    },
+    methods: {
+        increase: function() {
+             this.counter += 1;
+        }
+    }
+});
+
+var vm = new Vue({
+    el: '#example'
+});
+</script>
+</html>
