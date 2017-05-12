@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
 </head>
-  <script src="https://unpkg.com/vue/dist/vue.js">
-     var app = new Vue({
-  el: '#app', // 어떤 엘리먼트에 적용을 할 지 정합니다
-  // data 는 해당 뷰에서 사용할 정보를 지닙니다
-  data: {
-    name: 'Vue',
-    smile: true,
-    feelsgood: 'https://imgh.us/feelsgood_1.jpg',
-    feelsbad: 'http://imgh.us/feelsbad.jpg'
-  }   
-});
-    
-  </script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 <body>
   <div id="app">
     <h1>Hello, {{ name }}</h1>
     <h3><input type="checkbox" v-model="smile"/>웃어요 개구리</h3>
-    <img :src="smile ? feelsgood : feelsbad"/>
+    <img :src="smile ? feelsgood : feelsbad" />
   </div>
 </body>
+<script>
+  var app = new Vue({
+    el: '#app', // 어떤 엘리먼트에 적용을 할 지 정합니다
+    // data 는 해당 뷰에서 사용할 정보를 지닙니다
+    data: {
+      name: 'Vue',
+      smile: true,
+      feelsgood: 'https://imgh.us/feelsgood_1.jpg',
+      feelsbad: 'http://imgh.us/feelsbad.jpg'
+    }
+  });
+</script>
+
 </html>
