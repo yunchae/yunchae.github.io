@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<body>
+  <div id="example">
+    <child-component v-bind:message="message"></child-component>
+    <button v-on:click="changeMessage">Change</button>
+</div>
+</body>
+<script>
+Vue.component('child-component', {
+    template: '<p>{{ fullMessage }}</p>',
+    props: ['message'],
+    data: function() {
+        return {
+            name: 'Vue.js',
+        }
+    },
+    computed:{
+        fullMessage: function() {
+            return this.message + this.name + '!';
+        }
+    }
+});
+
+var vm = new Vue({
+    el: '#example',
+    data: {
+        message: 'My component is '
+    },
+    methods: {
+        changeMessage: function() {
+            this.message = 'Your component is ';
+        }
+    }
+});
+</script>
+</html>
